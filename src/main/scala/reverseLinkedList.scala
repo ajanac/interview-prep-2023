@@ -14,13 +14,13 @@
             -5000 <= Node.val <= 5000
  * */
 
-class ListNode(val value: Int, var next: ListNode = null)
+class ListNodeGeneral(val value: Int, var next: ListNodeGeneral = null)
 
-object ListNode
+object ListNodeGeneral
 {
-  def apply(value: Int = -999, next: ListNode = null) = new ListNode(value, next)
+  def apply(value: Int = -999, next: ListNodeGeneral = null) = new ListNodeGeneral(value, next)
 
-  def printList(listNode: ListNode): Unit =
+  def printList(listNode: ListNodeGeneral): Unit =
   {
     var node = listNode
     while (node != null)
@@ -34,13 +34,13 @@ object ListNode
 
 object ReverseLinkedList
 {
-  def reverseList(head: ListNode): ListNode =
+  def reverseList(head: ListNodeGeneral): ListNodeGeneral =
     {
-      var prev: ListNode = null
+      var prev: ListNodeGeneral = null
       var headTemp = head
       while (headTemp != null)
         {
-          var next: ListNode = headTemp.next
+          var next: ListNodeGeneral = headTemp.next
           headTemp.next = prev
           prev = headTemp
           headTemp = next
@@ -49,16 +49,16 @@ object ReverseLinkedList
     }
 }
 
-object reverseList extends App
+object ReverseList extends App
 {
   // Create one list && Add elements to the list
-  val listA = ListNode(5, ListNode(10, ListNode(15, null)))
-  ListNode.printList(listA)
+  val listA = ListNodeGeneral(5, ListNodeGeneral(10, ListNodeGeneral(15, null)))
+  ListNodeGeneral.printList(listA)
   // Call the reverse function
   val reversedList = ReverseLinkedList.reverseList(listA)
   // Display reversed list
   println("Reversed Linked List is:")
   println("*****************")
-  ListNode.printList(reversedList)
+  ListNodeGeneral.printList(reversedList)
 
 }
